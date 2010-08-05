@@ -40,7 +40,7 @@ def invoke_synergy(config, hostname):
   clients = [c['client']['name'] for c in config if c.has_key('client')]
   if servername == hostname:
     config_fname = gen_server_synergy_conf(config)
-    cmd = "synergys -f -c " + config_fname
+    cmd = "synergys -c " + config_fname
     subprocess.check_call(cmd.split(" "))
   elif hostname in clients:
     cmd = "synergyc " + servername
