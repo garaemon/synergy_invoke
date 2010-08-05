@@ -1,0 +1,19 @@
+- server:
+   name: cassava
+   positions:
+     - position: left = hijiki
+     - position: right = ogonori
+- client:
+   name: hijiki
+   target: cassava
+   positions:
+     - position: right = cassava
+     - position: left = hijiki
+- client:
+   name: dulse
+   positions:
+     - position: right = hijiki
+- client:
+   name: ogonori
+   positions:
+     - position: left = cassava

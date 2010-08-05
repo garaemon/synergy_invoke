@@ -23,15 +23,15 @@ def gen_server_synergy_conf(config):
   "\n".join([c['name'] + ":" for c in clients])))
   
   temp.write("section: links\n")
-  temp.write("""%s:
-  %s
-  """ % (servername, server['position']))
+  temp.write(servername + ":\n")
+  for pos in server['positions']:
+    temp.write(pos['position'] + "\n")
   for client in clients:
-    position = client['position']
     name = client['name']
-    temp.write("""%s:
-    %s
-    """ % (name, position))
+    temp.write("%s:\n" % name)
+    for position in client['positions']:
+      position = position['position']
+      temp.write(position + "\n")
   temp.write("end")
   return temp_file
 
