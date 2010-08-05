@@ -41,9 +41,11 @@ def invoke_synergy(config, hostname):
   if servername == hostname:
     config_fname = gen_server_synergy_conf(config)
     cmd = "synergys -c " + config_fname
+    print cmd
     subprocess.check_call(cmd.split(" "))
   elif hostname in clients:
     cmd = "synergyc " + servername
+    print cmd
     subprocess.check_call(cmd.split(" "))
 
 if __name__ == "__main__":
